@@ -1,0 +1,107 @@
+@startuml
+
+abstract class MiniClasaMeaObject {
+    <<Serializable>>
+    abstract + String toString()
+}
+
+class Tip {
+    <<Serializable>>
+    - String tip
+    + Tip(String tip)
+    + String getTip()
+    + String toString()
+}
+
+class Vehicule {
+    <<Serializable>>
+    - static final String YELLOW
+    - static final String GREEN
+    - static final String BLUE
+    - static final String WHITE
+    - static final String FileName
+    - transient Scanner scanner
+    - static final int currentYear
+    - String marca
+    - String numarSerieMotor
+    - int anul
+    - double pret
+    + Vehicule()
+    + Vehicule(String marca, String numarSerieMotor, int anul, double pret)
+    + void setMarca(String marca)
+    + void setNumarSerieMotor(String numarSerieMotor)
+    + void setAnul(int anul)
+    + void setPret(double pret)
+    + String getMarca()
+    + String getNumarSerieMotor()
+    + int getAnul()
+    + double getPret()
+    + abstract void read()
+    + int howOld()
+    + String toString()
+}
+
+class Automobil {
+    <<Serializable>>
+    - int seats
+    + void setSeats(int seats)
+    + int getSeats()
+    + Automobil()
+    + Automobil(String marca, String numarSerieMotor, int anul, double pret, int seats)
+    + void read()
+    + double price(double p)
+    + String toString()
+}
+
+class Camioneta {
+    <<Serializable>>
+    - double capacitate
+    + void setCapacitate(double capacitate)
+    + double getCapacitate()
+    + Camioneta()
+    + Camioneta(String numarSerieMotor, String marca, int anul, double pret, double capacitate)
+    + void read()
+    + double price(double p)
+    + String toString()
+}
+
+class GUI {
+    - ImageIcon logo
+    - JButton b1
+    - JButton b2
+    - JButton b3
+    - JButton b4
+    - JButton b5
+    - JButton b6
+    - JButton b7
+    - JButton b8
+    + GUI()
+}
+
+class TEst1 {
+    - static final String YELLOW
+    - static final String GREEN
+    - static final String BLUE
+    - static final String PURPLE
+    - static final String WHITE
+    - static final String FileName
+    - static Scanner scanner
+    - static ArrayList<MiniClasaMeaObject> list
+    + addVehiculToArraylist()
+    + showArraylist()
+    + saveArrayListToFile()
+    + dateFromFileToArrayList()
+    + pretTotal()
+    + camionete()
+    + ceaMaiIeftinaCamioneta()
+    + celMaiVechi()
+    + cel_mai_mare_numar_de_pasageri()
+    + main(String[] args)
+}
+
+MiniClasaMeaObject <|-- Tip
+MiniClasaMeaObject <|-- Vehicule
+Vehicule <|-- Automobil
+Vehicule <|-- Camioneta
+
+@enduml
